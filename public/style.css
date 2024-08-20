@@ -11,9 +11,7 @@ body {
     color: #e0e0e0; /* Light text for contrast */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .header {
@@ -21,16 +19,49 @@ body {
     background-color: #1a1a1a; /* Different color for the header */
     padding: 20px 0;
     text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Ensures it stays on top */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Slight shadow for separation */
 }
 
 h1 {
     color: #e0e0e0; /* Light text to match the dark theme */
     margin: 0;
+}
+
+/* Navigation Bar Styling */
+nav {
+    width: 100%;
+    background-color: #333; /* Darker color for the nav bar */
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #e0e0e0;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555; /* Highlight effect */
+    border-radius: 5px;
+}
+
+.content {
+    max-width: 450px;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .chat-container {
@@ -41,9 +72,10 @@ h1 {
     max-width: 100%;
     padding: 20px;
     border: 1px solid #333; /* Border for better separation */
-    margin-top: 80px; /* Adjust margin to avoid overlap with the header */
+    margin-top: 20px; /* Adjust margin to avoid overlap with the header */
 }
 
+/* Chat message styling */
 #messages {
     list-style-type: none;
     margin: 0;

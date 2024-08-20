@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
+const path = require('path');
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -8,19 +9,44 @@ const dns = require('node:dns');
 const os = require('node:os');
 
 const options = { family: 4 };
-app.use(express.static('public'));
 
+let userCount = 0;
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+});
+
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'about.html'));
+});
+
+// Socket.io for real-time messaging
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    userCount++;
+    
+
+    // Broadcast the updated user count
+    io.emit('user count', userCount);
 
     // Listen for incoming messages
     socket.on('chat message', (msg) => {
-        // Broadcast the message to everyone except the sender
         io.emit('chat message', msg);
     });
 
     socket.on('disconnect', () => {
-        console.log('user disconnected');
+        userCount--;
+        
+
+        // Broadcast the updated user count
+        io.emit('user count', userCount);
     });
 });
 
