@@ -8,7 +8,6 @@ const dns = require('node:dns');
 const os = require('node:os');
 
 const options = { family: 4 };
-
 app.use(express.static('public'));
 
 io.on('connection', (socket) => {

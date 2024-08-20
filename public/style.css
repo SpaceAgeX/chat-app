@@ -1,0 +1,114 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text for contrast */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    width: 100%;
+    background-color: #1a1a1a; /* Different color for the header */
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it stays on top */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Slight shadow for separation */
+}
+
+h1 {
+    color: #e0e0e0; /* Light text to match the dark theme */
+    margin: 0;
+}
+
+.chat-container {
+    background-color: #1e1e1e; /* Slightly lighter dark background */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Softer shadow */
+    width: 450px;
+    max-width: 100%;
+    padding: 20px;
+    border: 1px solid #333; /* Border for better separation */
+    margin-top: 80px; /* Adjust margin to avoid overlap with the header */
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    border-bottom: 1px solid #333;
+    margin-bottom: 15px;
+}
+
+#messages div {
+    padding: 10px;
+    background-color: #2a2a2a;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    color: #b3b3b3; /* Slightly lighter for message text */
+}
+
+#messages div:nth-child(odd) {
+    background-color: #333333; /* Alternate background for messages */
+}
+
+#message-input {
+    width: calc(100% - 80px); /* Adjusted width for better button space */
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2a2a2a; /* Dark input field */
+    color: #e0e0e0;
+    margin-right: 10px;
+    outline: none;
+}
+
+#message-input::placeholder {
+    color: #777; /* Darker placeholder text */
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #003f7f; /* Even darker on click */
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555; /* Darker scrollbar */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #2a2a2a;
+}
